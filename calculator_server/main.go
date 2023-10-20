@@ -8,6 +8,8 @@ import (
 	"net"
 
 	"google.golang.org/grpc"
+	"google.golang.org/grpc/health"
+	"google.golang.org/grpc/health/grpc_health_v1"
 	"google.golang.org/grpc/reflection"
 )
 
@@ -36,6 +38,8 @@ func main() {
 	s := grpc.NewServer()
 	reflection.Register(s)
 	calculatorpb.RegisterCalculatorServiceServer(s, &CalculatorService{})
+
+	grpc_health_v1.RegisterHealthServer(s, health.NewServer())
 
 	fmt.Println("Servidor rodando")
 
