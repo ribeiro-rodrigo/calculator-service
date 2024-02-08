@@ -24,7 +24,7 @@ func (*CalculatorService) Sum(context context.Context, request *calculatorpb.Sum
 
 	result := num1 + num2
 
-	fmt.Println(fmt.Sprintf("result is %d", result))
+	fmt.Printf("result is %d \n", result)
 
 	response := calculatorpb.SumResponse{
 		Result: result,
