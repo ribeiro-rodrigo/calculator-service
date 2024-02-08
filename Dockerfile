@@ -4,7 +4,7 @@ FROM golang:1.20.7-alpine3.18 as Build
 WORKDIR /usr/local/go/src/server
 
 # Copy everything from the current directory to the PWD (Present Working Directory) inside the container
-COPY calculator_server .
+COPY . .
 
 # Download all the dependencies
 RUN go mod download 

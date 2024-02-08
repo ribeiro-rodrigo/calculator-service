@@ -16,10 +16,15 @@ import (
 type CalculatorService struct{}
 
 func (*CalculatorService) Sum(context context.Context, request *calculatorpb.SumRequest) (*calculatorpb.SumResponse, error) {
+
+	fmt.Println("request received")
+
 	num1 := request.GetNum1()
 	num2 := request.GetNum2()
 
 	result := num1 + num2
+
+	fmt.Println(fmt.Sprintf("result is %d", result))
 
 	response := calculatorpb.SumResponse{
 		Result: result,
